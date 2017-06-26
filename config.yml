@@ -1,0 +1,16 @@
+director_name: bosh-1
+internal_cidr:  10.193.56.0/24
+internal_gw: 10.193.56.1
+internal_ip: 10.193.56.240
+network_name: 'VM Network'
+vcenter_dc: Datacenter
+vcenter_ds: LUN01
+vcenter_ip: 10.193.56.11
+vcenter_user: administrator@vsphere.local
+vcenter_password: kMMl5aOMXLEa!
+vcenter_templates: bosh-1-templates
+vcenter_vms: bosh-1-vms
+vcenter_disks: bosh-1-disks
+vcenter_cluster: Cluster
+dns_ip: 10.193.56.2
+ntp_ip: 10.193.56.2

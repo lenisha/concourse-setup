@@ -3,5 +3,5 @@ variables:
   type: certificate
   options:
     is_ca: true
-    common_name: concourse-ci
-    alternative_names: [((internal_dns))]
+    common_name: ((dns_name))
+    alternative_names: [((dns_name))]

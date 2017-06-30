@@ -1,0 +1,48 @@
+releases:
+- {name: dynatrace-oneagent, version: 0.3.3}
+
+addons:
+- name: dynatrace-oneagent-addon
+  jobs:
+  - name: dynatrace-oneagent
+    release: dynatrace-oneagent
+  include:
+    stemcell:
+    - os: ubuntu-trusty
+  exclude:
+    jobs:
+    - {name: smoke-tests, release: cf}
+    - {name: push-apps-manager, release: push-apps-manager-release}
+    - {name: deploy-notifications, release: notifications}
+    - {name: deploy-notifications-ui, release: notifications-ui}
+    - {name: push-pivotal-account, release: pivotal-account}
+    - {name: deploy-autoscaling, release: cf-autoscaling}
+    - {name: register-broker, release: cf-autoscaling}
+    - {name: nfsbrokerpush, release: nfs-volume}
+    - {name: bootstrap, release: cf-mysql}
+    - {name: rejoin-unsafe, release: cf-mysql}
+    - {name: broker-registrar, release: cf-mysql}
+    - {name: deregister-and-purge-instances, release: cf-mysql}
+    - {name: smoke-tests, release: cf-mysql}
+    - {name: install-hwc-buildpack, release: hwc-buildpack}
+  properties:
+    dynatrace:
+      environmentid: iiu44637
+      apitoken: 
+      apiurl: https://iiu44637.live.dynatrace.com/api
+      starthelper: 1
+      sslmode: all
+      downloadurl: https://iiu44637.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?Api-Token=
+#optional: extra addon configuration for Windows cells
+#- name: dynatrace-oneagent-windows-addon
+#  jobs:
+#  - name: dynatrace-oneagent-windows
+#    release: dynatrace-oneagent
+#  include:
+#    stemcell:
+#    - os: windows2012R2
+#  properties:
+#    dynatrace:
+#      environmentid: <environmentid>
+#      apitoken: <token>
+#      apiurl: https://{your-managed-cluster.com}/e/{environmentid}/api
